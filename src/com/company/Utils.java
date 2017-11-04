@@ -18,20 +18,6 @@ public class Utils {
         }
         return key;
     }
-
-    /**
-     * XOR two blocks.
-     * @param a block 1
-     * @param pos offset in block 1
-     * @param b block 2
-     * @param blockSize size of the block to xor
-     */
-    public static void xor(byte[] a, int pos, byte[] b, int blockSize) {
-        for (int p = 0; p < blockSize; p++) {
-            a[pos + p] ^= b[p];
-        }
-    }
-
     /**
      * Concatenate two bytes into one 16-bit block.
      */
@@ -39,20 +25,5 @@ public class Utils {
         b1 = (b1 & 0xFF) << 8;  // xxxxxxxx00000000
         b2 = b2 & 0xFF;         // 00000000xxxxxxxx
         return (b1 | b2);       // xxxxxxxxxxxxxxxx
-    }
-
-    /**
-     * Concatenate two bytes arrays into one.
-     */
-    public static byte[] concat2Bytes(byte[] b1, byte[] b2) {
-        byte[] out = new byte[b1.length + b2.length];
-        int i = 0;
-        for (byte aB1 : b1) {
-            out[i++] = aB1;
-        }
-        for (byte aB2 : b2) {
-            out[i++] = aB2;
-        }
-        return out;
     }
 }

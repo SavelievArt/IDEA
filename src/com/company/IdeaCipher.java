@@ -73,8 +73,8 @@ public class IdeaCipher extends BlockCipher {
     /**
      * Creating the subkeys from the user key.
      *
-     * @param userKey 128-bit user key
-     * @return 52 16-bit key sub-blocks (six for each of the eight rounds and four more for the output transformation)
+     * userKey 128-bit user key
+     * 52 16-bit key sub-blocks (six for each of the eight rounds and four more for the output transformation)
      */
     private static int[] generateSubkeys(byte[] userKey) {
         if (userKey.length != 16) {
@@ -103,9 +103,6 @@ public class IdeaCipher extends BlockCipher {
     /**
      * Reverse and invert the subkeys to get the decryption subkeys.
      * They are either the additive or multiplicative inverses of the encryption subkeys in reverse order.
-     *
-     * @param subkey subkeys
-     * @return inverted subkey
      */
     private static int[] invertSubkey(int[] subkey) {
         int[] invSubkey = new int[subkey.length];
@@ -172,7 +169,7 @@ public class IdeaCipher extends BlockCipher {
      * Multiplicative inverse in the multiplicative group (mod 2^16+1 = mod 0x10001).
      * It uses Extended Euclidean algorithm to compute the inverse.
      * For the purposes of IDEA, the all-zero sub-block is considered to represent 2^16 = −1
-     * for multiplication modulo 216 + 1; thus the multiplicative inverse of 0 is 0.
+     * for multiplication mod 216 + 1; thus the multiplicative inverse of 0 is 0.
      * Range [0, 0xFFFF].
      */
     @SuppressWarnings("SuspiciousNameCombination")

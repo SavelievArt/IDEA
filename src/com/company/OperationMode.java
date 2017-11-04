@@ -6,7 +6,7 @@ package com.company;
 public abstract class OperationMode {
 
     public enum Mode {
-        ECB, CBC, CFB, OFB
+        ECB;
     }
 
     protected IdeaCipher idea;
@@ -21,9 +21,5 @@ public abstract class OperationMode {
 
     void crypt(byte[] data){
         crypt(data, 0);
-    }
-
-    public boolean isEncrypt() {
-        return encrypt;
     }
 }

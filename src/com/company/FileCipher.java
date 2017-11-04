@@ -37,10 +37,6 @@ public class FileCipher extends Task<Void> {
         status = new SimpleStringProperty();
     }
 
-    public StringProperty getStatus() {
-        return status;
-    }
-
     /**
      * Encrypts / decrypts file.
      */
