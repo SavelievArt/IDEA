@@ -4,12 +4,14 @@ import java.io.*;
 
 public class Main {
 
+    public final static String PATH_UBUNTU = "/home/artem/IdeaProjects/IDEA/src/com/company/resources/";
+    public final static String PATH_WINDOWS =  "C:\\Users\\savel\\Desktop\\Cipher-2\\src\\com\\company\\resources\\";
     public static void main(String[] args) throws Exception {
 
         try{
-            File input = new File("C:\\Users\\savel\\Desktop\\Cipher-2\\src\\com\\company\\resources\\plain.txt");
-            File output = new File("C:\\Users\\savel\\Desktop\\Cipher-2\\src\\com\\company\\resources\\encrypted.txt");
-            File result = new File("C:\\Users\\savel\\Desktop\\Cipher-2\\src\\com\\company\\resources\\result.txt");
+            File input = new File(PATH_UBUNTU + "plain.txt");
+            File output = new File(PATH_UBUNTU + "encrypted.txt");
+            File result = new File(PATH_UBUNTU + "result.txt");
             if(!input.canRead() || (!output.canRead() && !output.canWrite()) || !result.canWrite()){
                 if(!input.canRead())
                     System.err.println("Can not read input file. Check file!");
@@ -25,7 +27,7 @@ public class Main {
             else{
                 String keyStr = "";
                 try{
-                    FileInputStream key = new FileInputStream("C:\\Users\\savel\\Desktop\\Cipher-2\\src\\com\\company\\key.txt");
+                    FileInputStream key = new FileInputStream(PATH_UBUNTU + "key.txt");
                     BufferedReader br = new BufferedReader(new InputStreamReader(key));
                     String strLine;
                     while ((strLine = br.readLine()) != null){

@@ -28,7 +28,6 @@ public class IdeaCipher extends BlockCipher {
         }
     }
 
-    @SuppressWarnings({"SuspiciousNameCombination", "PointlessArithmeticExpression"})
     @Override
     public void crypt(byte[] data, int offset) {
         // Divide the 64-bit data block into four 16-bit sub-blocks (input of 1st round)
@@ -172,7 +171,6 @@ public class IdeaCipher extends BlockCipher {
      * for multiplication mod 216 + 1; thus the multiplicative inverse of 0 is 0.
      * Range [0, 0xFFFF].
      */
-    @SuppressWarnings("SuspiciousNameCombination")
     private static int mulInv(int x) {
         if (x <= 1) {
             // 0 and 1 are their own inverses

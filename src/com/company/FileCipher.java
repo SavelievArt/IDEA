@@ -26,7 +26,6 @@ public class FileCipher extends Task<Void> {
     private String key;
     private boolean encrypt;
     private OperationMode.Mode mode;
-    private StringProperty status; // To print messages in status box
 
     public FileCipher(String input, String output, String key, boolean encrypt, OperationMode.Mode mode) {
         this.input = input;
@@ -34,7 +33,6 @@ public class FileCipher extends Task<Void> {
         this.key = key;
         this.encrypt = encrypt;
         this.mode = mode;
-        status = new SimpleStringProperty();
     }
 
     /**
@@ -77,7 +75,6 @@ public class FileCipher extends Task<Void> {
             }
 
             // Encrypt / decrypt data
-            status.setValue("Running IDEA...");
             processData(inChannel, inDataLen, outChannel, outDataLen, opMod);
 
             // Write / read lenght of the data
